@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gerador de Contratos — Fábrica de Ideias</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <h1>Gerador de Contratos — Fábrica de Ideias</h1>
+  <p>Preencha os dados e baixe o contrato pronto para enviar ao cliente.</p>
+</header>
+
+<main>
+  <div class="type-selector">
+    <button type="button" class="type-btn active" data-type="agencia" id="btnAgencia">
+      <strong>Contrato de Agência</strong>
+      <span>Prestação recorrente / mensal</span>
+    </button>
+    <button type="button" class="type-btn" data-type="avulso" id="btnAvulso">
+      <strong>Contrato Avulso</strong>
+      <span>Projeto único, pagamento único</span>
+    </button>
+  </div>
+
+  <form id="contratoForm">
+    <!-- DADOS DO CLIENTE (comum aos dois tipos) -->
+    <fieldset>
+      <legend>Dados do Cliente</legend>
+      <div class="field">
+        <label>Razão social / Nome completo</label>
+        <input type="text" name="clienteRazaoSocial" required>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label>Tipo</label>
+          <select name="clienteTipoPessoa">
+            <option value="juridica">Pessoa jurídica</option>
+            <option value="fisica">Pessoa física</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>CNPJ / CPF</label>
+          <input type="text" name="clienteCnpjCpf" required placeholder="Somente números">
+        </div>
+      </div>
+      <div class="field">
+        <label>Endereço completo</label>
+        <input type="text" name="clienteEndereco" required placeholder="Rua, número, bairro, cidade - UF, CEP">
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label>Nome do representante que assina</label>
+          <input type="text" name="clienteRepresentante" required>
+        </div>
+        <div class="field">
+          <label>E-mail de contato</label>
+          <input type="email" name="clienteEmail" required>
+        </div>
+      </div>
+      <div class="field">
+        <label>Telefone / WhatsApp <span class="hint">Opcional</span></label>
+        <input type="text" name="clienteTelefone">
+      </div>
+    </fieldset>
+
+    <!-- ===================== AGÊNCIA ===================== -->
+    <div id="secaoAgencia">
+      <fieldset>
+        <legend>Escopo do Plano</legend>
+        <div class="field">
+          <label>Quantidade de vídeos por mês</label>
+          <input type="number" name="quantidadeVideos" min="1" value="4" required>
+        </div>
+
+        <div class="toggle-row">
+          <label>Tem design?</label>
+          <label class="switch"><input type="checkbox" name="temDesign" id="temDesign" checked><span class="slider"></span></label>
+        </div>
+        <div class="conditional show" id="condDesign">
+          <div class="field">
+            <label>Quantidade de artes por mês</label>
+            <input type="number" name="quantidadeArtes" min="1" value="8">
+          </div>
+        </div>
+
+        <div class="toggle-row">
+          <label>Tem social media?</label>
+          <label class="switch"><input type="checkbox" name="temSocialMedia" id="temSocialMedia" checked><span class="slider"></span></label>
+        </div>
+
+        <div class="toggle-row">
+          <label>Tem consultoria estratégica?</label>
+          <label class="switch"><input type="checkbox" name="temConsultoria" id="temConsultoria"><span class="slider"></span></label>
+        </div>
+        <div class="conditional" id="condConsultoria">
+          <div class="field">
+            <label>Reuniões mensais inclusas</label>
+            <input type="number" name="reunioesMensais" min="1" value="1">
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Prazo e Pagamento</legend>
+        <div class="row2">
+          <div class="field">
+            <label>Data de início / assinatura</label>
+            <input type="date" name="dataInicio" required>
+          </div>
+          <div class="field">
+            <label>Duração do contrato (meses)</label>
+            <input type="number" name="duracaoMeses" min="1" value="6" required>
+          </div>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label>Valor mensal (R$)</label>
+            <input type="number" step="0.01" name="valorMensal" required placeholder="Ex: 6500.00">
+          </div>
+          <div class="field">
+            <label>Dia de vencimento</label>
+            <input type="number" name="diaVencimento" min="1" max="28" value="10" required>
+          </div>
+        </div>
+        <div class="field">
+          <label>Forma de pagamento</label>
+          <select name="formaPagamento">
+            <option value="PIX">PIX</option>
+            <option value="Boleto bancário">Boleto bancário</option>
+            <option value="Transferência bancária (TED)">Transferência bancária (TED)</option>
+            <option value="Cartão de crédito">Cartão de crédito</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>% de multa se cancelar entre 3 e 6 meses <span class="hint">Padrão definido pela Fábrica: 50%. Só altere se este contrato for uma exceção combinada.</span></label>
+          <input type="number" name="percentualMultaIntermediaria" value="50" min="0" max="100">
+        </div>
+        <div class="field">
+          <label>Responsável pela Fábrica que assina <span class="hint">Deixe em branco para usar Miguel Candido Filho</span></label>
+          <input type="text" name="responsavelFabrica" placeholder="Miguel Candido Filho">
+        </div>
+      </fieldset>
+    </div>
+
+    <!-- ===================== AVULSO ===================== -->
+    <div id="secaoAvulso" class="hidden-section">
+      <fieldset>
+        <legend>Escopo do Projeto</legend>
+        <div class="field">
+          <label>Descrição do projeto</label>
+          <textarea name="descricaoProjeto" placeholder="Ex: 1 (um) vídeo institucional de até 3 minutos, incluindo roteiro, captação, edição e finalização"></textarea>
+        </div>
+        <div class="field">
+          <label>Quantidade de vídeos</label>
+          <input type="number" name="quantidadeVideosAvulso" min="1" value="1">
+        </div>
+        <div class="toggle-row">
+          <label>Tem design?</label>
+          <label class="switch"><input type="checkbox" name="temDesignAvulso" id="temDesignAvulso"><span class="slider"></span></label>
+        </div>
+        <div class="conditional" id="condDesignAvulso">
+          <div class="field">
+            <label>Quantidade de artes</label>
+            <input type="number" name="quantidadeArtesAvulso" min="1" value="2">
+          </div>
+        </div>
+        <div class="toggle-row">
+          <label>Inclui adequação para social media?</label>
+          <label class="switch"><input type="checkbox" name="temSocialMediaAvulso" id="temSocialMediaAvulso"><span class="slider"></span></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Prazo e Pagamento</legend>
+        <div class="row2">
+          <div class="field">
+            <label>Data de assinatura</label>
+            <input type="date" name="dataInicioAvulso" required>
+          </div>
+          <div class="field">
+            <label>Prazo de entrega (dias úteis)</label>
+            <input type="number" name="prazoDiasUteis" min="1" value="15" required>
+          </div>
+        </div>
+        <div class="field">
+          <label>Data prevista de captação <span class="hint">Opcional</span></label>
+          <input type="date" name="dataCaptacao">
+        </div>
+        <div class="field">
+          <label>Valor total (R$)</label>
+          <input type="number" step="0.01" name="valorTotal" required placeholder="Ex: 8500.00">
+        </div>
+        <div class="field">
+          <label>Condição de pagamento</label>
+          <select name="condicaoPagamento" id="condicaoPagamento">
+            <option value="50-50">50% sinal + 50% na entrega</option>
+            <option value="avista">100% à vista na assinatura</option>
+            <option value="personalizado">Personalizado (escrever manualmente)</option>
+          </select>
+        </div>
+        <div class="conditional" id="condPersonalizado">
+          <div class="field">
+            <label>Descreva a condição de pagamento</label>
+            <textarea name="condicaoPagamentoTexto" placeholder="Ex: 3 parcelas iguais de R$..."></textarea>
+          </div>
+        </div>
+        <div class="field">
+          <label>Forma de pagamento</label>
+          <select name="formaPagamentoAvulso">
+            <option value="PIX">PIX</option>
+            <option value="Boleto bancário">Boleto bancário</option>
+            <option value="Transferência bancária (TED)">Transferência bancária (TED)</option>
+            <option value="Cartão de crédito">Cartão de crédito</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Responsável pela Fábrica que assina <span class="hint">Deixe em branco para usar Miguel Candido Filho</span></label>
+          <input type="text" name="responsavelFabricaAvulso" placeholder="Miguel Candido Filho">
+        </div>
+      </fieldset>
+    </div>
+
+    <button type="submit" id="submitBtn">Gerar contrato (.docx)</button>
+    <div id="status"></div>
+  </form>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
