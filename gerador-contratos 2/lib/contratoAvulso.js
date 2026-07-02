@@ -88,57 +88,63 @@ function buildAvulsoContract(data) {
     "O atraso no pagamento acarretará multa moratória de 10% (dez por cento) sobre o valor em atraso, acrescida de juros de mora de 1% (um por cento) ao mês, calculados pro rata die, sem prejuízo da suspensão da produção ou da entrega até a regularização."
   ]);
 
-  c.add("OBRIGAÇÕES DA CONTRATADA", numberedBullets([
-    "executar o serviço com diligência, técnica e padrão profissional compatível com o mercado de produção audiovisual;",
-    "produzir o material conforme briefing e escopo acordados;",
-    "manter sigilo sobre informações estratégicas e materiais não publicados da CONTRATANTE;",
-    "comunicar prontamente eventuais impedimentos técnicos, climáticos ou de agenda que possam impactar o prazo."
-  ]));
+  c.add("OBRIGAÇÕES DA CONTRATADA", [
+    "5.1. São obrigações da CONTRATADA:",
+    ...numberedBullets([
+      "executar o serviço com diligência, técnica e padrão profissional compatível com o mercado de produção audiovisual;",
+      "produzir o material conforme briefing e escopo acordados;",
+      "manter sigilo sobre informações estratégicas e materiais não publicados da CONTRATANTE;",
+      "comunicar prontamente eventuais impedimentos técnicos, climáticos ou de agenda que possam impactar o prazo."
+    ])
+  ]);
 
-  c.add("OBRIGAÇÕES DA CONTRATANTE", numberedBullets([
-    "fornecer informações, materiais, acessos, logotipos e referências necessárias em prazo hábil;",
-    "aprovar ou solicitar ajustes no prazo previsto na cláusula de prazo de execução;",
-    "efetuar os pagamentos nos valores e prazos previstos;",
-    "garantir que informações, promessas comerciais e dados fornecidos para o material sejam verdadeiros, lícitos e autorizados;",
-    "obter e disponibilizar à CONTRATADA as autorizações de uso de imagem e voz de colaboradores, representantes ou terceiros por ela indicados que venham a figurar no material. Caso o elenco/modelos sejam contratados diretamente pela CONTRATADA a pedido da CONTRATANTE, a obtenção dessa autorização caberá à CONTRATADA, com custo já incluído no orçamento do respectivo talento."
-  ]));
+  c.add("OBRIGAÇÕES DA CONTRATANTE", [
+    "6.1. São obrigações da CONTRATANTE:",
+    ...numberedBullets([
+      "fornecer informações, materiais, acessos, logotipos e referências necessárias em prazo hábil;",
+      "aprovar ou solicitar ajustes no prazo previsto na cláusula de prazo de execução;",
+      "efetuar os pagamentos nos valores e prazos previstos;",
+      "garantir que informações, promessas comerciais e dados fornecidos para o material sejam verdadeiros, lícitos e autorizados;",
+      "obter e disponibilizar à CONTRATADA as autorizações de uso de imagem e voz de colaboradores, representantes ou terceiros por ela indicados que venham a figurar no material. Caso o elenco/modelos sejam contratados diretamente pela CONTRATADA a pedido da CONTRATANTE, a obtenção dessa autorização caberá à CONTRATADA, com custo já incluído no orçamento do respectivo talento."
+    ])
+  ]);
 
   c.add("CANCELAMENTO", [
-    "Em caso de cancelamento do projeto pela CONTRATANTE após a assinatura deste contrato e o pagamento do sinal ou valor inicial, o valor já pago não será restituído, a título de reserva de agenda e custos já incorridos.",
-    "Caso o cancelamento ocorra após o início efetivo da captação ou produção, será devido, adicionalmente, o valor proporcional aos serviços já executados até a data do cancelamento, calculado com base nas etapas efetivamente concluídas.",
-    "Em caso de cancelamento pela CONTRATADA por motivo não imputável à CONTRATANTE, os valores já pagos serão integralmente restituídos em até 10 (dez) dias úteis.",
-    "Remarcações de captação solicitadas pela CONTRATANTE com menos de 48 (quarenta e oito) horas de antecedência poderão ensejar cobrança de taxa de remarcação, a ser informada previamente pela CONTRATADA, referente a custos de equipe e agenda já reservados."
+    "7.1. Em caso de cancelamento do projeto pela CONTRATANTE após a assinatura deste contrato e o pagamento do sinal ou valor inicial, o valor já pago não será restituído, a título de reserva de agenda e custos já incorridos.",
+    "7.2. Caso o cancelamento ocorra após o início efetivo da captação ou produção, será devido, adicionalmente, o valor proporcional aos serviços já executados até a data do cancelamento, calculado com base nas etapas efetivamente concluídas.",
+    "7.3. Em caso de cancelamento pela CONTRATADA por motivo não imputável à CONTRATANTE, os valores já pagos serão integralmente restituídos em até 10 (dez) dias úteis.",
+    "7.4. Remarcações de captação solicitadas pela CONTRATANTE com menos de 48 (quarenta e oito) horas de antecedência poderão ensejar cobrança de taxa de remarcação, a ser informada previamente pela CONTRATADA, referente a custos de equipe e agenda já reservados."
   ]);
 
   c.add("DIREITOS AUTORAIS, USO DOS MATERIAIS, PORTFÓLIO E IMAGEM DE TERCEIROS", [
-    "Após a quitação integral do valor devido, os direitos patrimoniais de uso do material final produzido serão cedidos à CONTRATANTE, para utilização em seus canais digitais, campanhas, apresentações e materiais institucionais.",
-    "A CONTRATADA poderá utilizar trechos, imagens, frames e o material produzido para fins de portfólio, divulgação institucional e apresentação comercial de seus serviços, desde que tal uso não cause prejuízo à imagem ou reputação da CONTRATANTE. A CONTRATANTE poderá, mediante comunicação por escrito, solicitar que o material não seja utilizado para esse fim, devendo a CONTRATADA atender à solicitação em prazo razoável.",
-    "Arquivos brutos, projetos editáveis e arquivos-fonte somente serão entregues mediante previsão expressa em proposta comercial ou ajuste específico por escrito, podendo implicar custo adicional.",
-    "A responsabilidade pela obtenção da autorização de uso de imagem e voz de pessoas físicas que figurem no material segue o disposto na cláusula de obrigações da CONTRATANTE."
+    "8.1. Após a quitação integral do valor devido, os direitos patrimoniais de uso do material final produzido serão cedidos à CONTRATANTE, para utilização em seus canais digitais, campanhas, apresentações e materiais institucionais.",
+    "8.2. A CONTRATADA poderá utilizar trechos, imagens, frames e o material produzido para fins de portfólio, divulgação institucional e apresentação comercial de seus serviços, desde que tal uso não cause prejuízo à imagem ou reputação da CONTRATANTE. A CONTRATANTE poderá, mediante comunicação por escrito, solicitar que o material não seja utilizado para esse fim, devendo a CONTRATADA atender à solicitação em prazo razoável.",
+    "8.3. Arquivos brutos, projetos editáveis e arquivos-fonte somente serão entregues mediante previsão expressa em proposta comercial ou ajuste específico por escrito, podendo implicar custo adicional.",
+    "8.4. A responsabilidade pela obtenção da autorização de uso de imagem e voz de pessoas físicas que figurem no material segue o disposto na cláusula 6.1(v)."
   ]);
 
   c.add("CONFIDENCIALIDADE E PROTEÇÃO DE DADOS", [
-    "As partes obrigam-se a manter sigilo sobre informações, dados, materiais internos e bastidores a que tiverem acesso em razão deste contrato, pelo prazo de 3 (três) anos após a entrega final.",
-    "Eventuais dados pessoais compartilhados para a execução deste projeto serão tratados exclusivamente para essa finalidade, em conformidade com a Lei nº 13.709/2018 (LGPD), sendo eliminados ou devolvidos ao final do projeto mediante solicitação da CONTRATANTE, salvo obrigação legal de retenção."
+    "9.1. As partes obrigam-se a manter sigilo sobre informações, dados, materiais internos e bastidores a que tiverem acesso em razão deste contrato, pelo prazo de 3 (três) anos após a entrega final.",
+    "9.2. Eventuais dados pessoais compartilhados para a execução deste projeto serão tratados exclusivamente para essa finalidade, em conformidade com a Lei nº 13.709/2018 (LGPD), sendo eliminados ou devolvidos ao final do projeto mediante solicitação da CONTRATANTE, salvo obrigação legal de retenção."
   ]);
 
   c.add("CASO FORTUITO E FORÇA MAIOR", [
-    "Nenhuma das partes será responsabilizada por atraso decorrente de caso fortuito ou força maior, incluindo condições climáticas que impeçam captação externa agendada, problemas de saúde da equipe, ou determinações governamentais supervenientes, devendo a parte impedida comunicar a outra por escrito e propor nova data tão logo possível."
+    "10.1. Nenhuma das partes será responsabilizada por atraso decorrente de caso fortuito ou força maior, incluindo condições climáticas que impeçam captação externa agendada, problemas de saúde da equipe, ou determinações governamentais supervenientes, devendo a parte impedida comunicar a outra por escrito e propor nova data tão logo possível."
   ]);
 
   c.add("INEXISTÊNCIA DE VÍNCULO", [
-    "O presente contrato possui natureza estritamente comercial, não gerando vínculo trabalhista, societário, de representação ou parceria entre as partes."
+    "11.1. O presente contrato possui natureza estritamente comercial, não gerando vínculo trabalhista, societário, de representação ou parceria entre as partes."
   ]);
 
   c.add("DISPOSIÇÕES GERAIS", [
-    "Qualquer alteração de escopo, prazo, valor ou obrigação deverá ser formalizada por escrito entre as partes.",
-    "As partes reconhecem a validade da assinatura eletrônica ou digital deste instrumento, dispensando-se reconhecimento de firma, salvo solicitação expressa de uma das partes.",
-    "Este instrumento representa o entendimento integral entre as partes quanto ao seu objeto, substituindo entendimentos, propostas ou tratativas verbais anteriores sobre a mesma matéria."
+    "12.1. Qualquer alteração de escopo, prazo, valor ou obrigação deverá ser formalizada por escrito entre as partes.",
+    "12.2. As partes reconhecem a validade da assinatura eletrônica ou digital deste instrumento, dispensando-se reconhecimento de firma, salvo solicitação expressa de uma das partes.",
+    "12.3. Este instrumento representa o entendimento integral entre as partes quanto ao seu objeto, substituindo entendimentos, propostas ou tratativas verbais anteriores sobre a mesma matéria."
   ]);
 
   c.add("RESOLUÇÃO DE CONFLITOS E FORO", [
-    "As partes buscarão, previamente a qualquer medida judicial, a resolução amigável de eventuais controvérsias por negociação direta.",
-    `Não havendo composição amigável, fica eleito o foro da Comarca de ${FABRICA.cidade} para dirimir quaisquer controvérsias oriundas deste contrato, com renúncia a qualquer outro, por mais privilegiado que seja.`
+    "13.1. As partes buscarão, previamente a qualquer medida judicial, a resolução amigável de eventuais controvérsias por negociação direta.",
+    `13.2. Não havendo composição amigável, fica eleito o foro da Comarca de ${FABRICA.cidade} para dirimir quaisquer controvérsias oriundas deste contrato, com renúncia a qualquer outro, por mais privilegiado que seja.`
   ]);
 
   children.push(...c.get());
